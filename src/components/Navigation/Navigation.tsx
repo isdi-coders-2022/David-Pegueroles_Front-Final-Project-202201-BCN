@@ -8,11 +8,7 @@ const Navigation = (): JSX.Element => {
       <ul className="navigation">
         <li className="navigation__item">
           <Link to="/users">
-            <img
-              src="icons/user.svg"
-              className="navigation__icon"
-              alt="An icon about a silhouette of a person"
-            />
+            <img src="icons/user.svg" className="navigation__icon" alt="User" />
             <span className="navigation__title navigation__title--small-text">
               USER
             </span>
@@ -23,7 +19,7 @@ const Navigation = (): JSX.Element => {
             <img
               src="icons/schedule.svg"
               className="navigation__icon"
-              alt="A calendar"
+              alt="Calendar"
             />
             <span className="navigation__title navigation__title--medium-text">
               CALENDAR
@@ -35,7 +31,7 @@ const Navigation = (): JSX.Element => {
             <img
               src="icons/map-marker.svg"
               className="navigation__icon"
-              alt="A map marker"
+              alt="Map"
             />
             <span className="navigation__title navigation__title--small-text">
               MAP
@@ -47,10 +43,10 @@ const Navigation = (): JSX.Element => {
             <img
               src="icons/plus.svg"
               className="navigation__icon"
-              alt="A plus sign"
+              alt="Appointment"
             />
             <span className="navigation__title navigation__title--large-text">
-              APPOINTMENTS
+              APPOINTMENT
             </span>
           </Link>
         </li>
