@@ -75,13 +75,11 @@ const Nav = styled.nav`
     bottom: 0;
 
     .navigation {
-      display: flex;
       flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
+      justify-content: flex-start;
 
       width: 150px;
-      height: 90vh;
+      height: 85vh;
       background-color: ${(props) => props.theme.palette.primary.main};
 
       &::before {
@@ -94,6 +92,8 @@ const Nav = styled.nav`
       .navigation__item {
         height: 80px;
         width: 80px;
+
+        margin-bottom: 50px;
 
         .navigation__icon {
           height: 50px;
