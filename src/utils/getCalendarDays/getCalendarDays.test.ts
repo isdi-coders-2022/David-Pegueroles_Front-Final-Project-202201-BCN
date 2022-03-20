@@ -1,8 +1,8 @@
 import getCalendarDays from "./getCalendarDays";
 
 describe("Given a getCalendarDays function", () => {
-  describe("When it's invoked with the number '3'", () => {
-    test("Then it should display links 'USER', 'CALENDAR', 'MAPS' and 'APPOINTMENTS'", () => {
+  describe("When it's invoked with the month '2' and the year '2022'", () => {
+    test("Then it should return the days from '2022-02-'28 to '2022-04-03'", () => {
       const monthNumber: number = 2;
       const yearNumber: number = 2022;
       const expectedCalendarDays = [
