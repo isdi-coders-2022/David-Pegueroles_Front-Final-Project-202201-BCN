@@ -61,6 +61,8 @@ describe("Given a CalendarPage component", () => {
       });
 
       expect(updatedCalendarHeading).toBeInTheDocument();
+      expect(calendarHeading).not.toContain(headingText);
+      expect(calendarHeading).toBe(updatedCalendarHeading);
     });
 
     test("Then it should display a button that when clicked it should change the heading 'March 2022' to 'April 2022'", () => {
@@ -92,6 +94,8 @@ describe("Given a CalendarPage component", () => {
       });
 
       expect(updatedCalendarHeading).toBeInTheDocument();
+      expect(calendarHeading).not.toContain(headingText);
+      expect(calendarHeading).toBe(updatedCalendarHeading);
     });
   });
 });
