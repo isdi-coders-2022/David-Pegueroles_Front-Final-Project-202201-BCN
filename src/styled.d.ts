@@ -9,6 +9,14 @@ interface IconsColors {
   inverted: string;
 }
 
+interface DayColors {
+  anotherMonth: string;
+  passed: string;
+  current: string;
+  coming: string;
+  appointment: string;
+}
+
 declare module "styled-components" {
   export interface Theme {
     mediaQueries: string;
@@ -21,6 +29,10 @@ declare module "styled-components" {
       primary: Colors;
       secondary: Colors;
       icons: IconsColors;
+      calendar: {
+        navigation: string;
+        day: DayColors;
+      };
     };
   }
 }
