@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const Nav = styled.nav`
+  background-color: white;
+  z-index: 10;
+
   @media (max-width: ${(props) => props.theme.mediaQueries}) {
     position: fixed;
     bottom: 0;
@@ -47,6 +50,7 @@ const Nav = styled.nav`
 
       .navigation__icon {
         height: 40px;
+        width: 40px;
         filter: ${(props) => props.theme.palette.icons.main};
       }
 
@@ -97,6 +101,7 @@ const Nav = styled.nav`
 
         .navigation__icon {
           height: 50px;
+          width: 50px;
           filter: ${(props) => props.theme.palette.icons.inverted};
         }
 
@@ -125,7 +130,6 @@ const Nav = styled.nav`
             right: 15px;
 
             .navigation__icon {
-              height: 50px;
               filter: ${(props) => props.theme.palette.icons.main};
             }
 
