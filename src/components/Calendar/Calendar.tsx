@@ -1,4 +1,4 @@
-import { addMonths, format } from "date-fns/esm";
+import { addMonths, format } from "date-fns";
 import { useEffect } from "react";
 import Button from "../../components/Button/Button";
 import getCalendarDays from "../../utils/getCalendarDays/getCalendarDays";
@@ -80,7 +80,7 @@ const Calendar = ({
 
       <WeekDays>
         {weekDays.map((weekDay) => (
-          <li className="weekDay" key={weekDay}>
+          <li title={weekDay} className="weekDay" key={weekDay}>
             {weekDay}
           </li>
         ))}
@@ -89,7 +89,11 @@ const Calendar = ({
       {days.map((week, index) => (
         <Week key={index} className="week">
           {week.map((day) => (
-            <li key={day} className={`day${assignClassToDay(day)}`}>
+            <li
+              title={day.split("-", 1)[0]}
+              key={day}
+              className={`day${assignClassToDay(day)}`}
+            >
               {day.split("-", 1)}
             </li>
           ))}
