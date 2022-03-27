@@ -47,15 +47,15 @@ const Calendar = ({
     const receivedDay: string[] = date.split("-", 1);
     const receivedDayNumber: number = parseInt(receivedDay[0]);
     const currentDay: number = new Date().getDate();
-    const currentMonth: string = (new Date().getMonth() + 1).toString();
+    const thisMonth: string = (new Date().getMonth() + 1).toString();
 
-    if (!date.split("-", 2)[1].endsWith(currentMonth)) {
+    if (!date.split("-", 2)[1].endsWith(thisMonth)) {
       classAssignment = " day--anotherMonth";
     } else if (receivedDayNumber < currentDay) {
       classAssignment = " day--passed";
     } else if (receivedDayNumber === currentDay) {
       classAssignment = " day--current";
-    } else if (receivedDayNumber > currentDay) {
+    } else {
       classAssignment = " day--coming";
     }
 
