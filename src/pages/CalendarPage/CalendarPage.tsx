@@ -1,4 +1,4 @@
-import { format } from "date-fns/esm";
+import { format } from "date-fns";
 import { useState } from "react";
 import Calendar from "../../components/Calendar/Calendar";
 import getCalendarDays from "../../utils/getCalendarDays/getCalendarDays";
