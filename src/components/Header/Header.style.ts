@@ -23,10 +23,14 @@ const HeaderImage = styled.header`
     background-color: ${(props) => props.theme.palette.primary.main};
   }
 
-  .logo {
+  h1 {
     margin-top: 10px;
     margin-bottom: 5px;
-    height: 80px;
+
+    .logo {
+      height: 80px;
+      margin: auto;
+    }
   }
 
   @media (min-width: ${(props) => props.theme.mediaQueries}) {
@@ -43,11 +47,14 @@ const HeaderImage = styled.header`
       background-color: ${(props) => props.theme.palette.secondary.main};
     }
 
-    .logo {
+    h1 {
       margin: 0;
       margin-right: 7px;
-      height: auto;
-      width: 143px;
+
+      .logo {
+        height: auto;
+        width: 143px;
+      }
     }
   }
 `;
