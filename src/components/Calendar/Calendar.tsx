@@ -70,7 +70,7 @@ const Calendar = ({
           text={<img src="icons/arrow.svg" alt="Previous Month Button" />}
           actionOnClick={previousMonthOnclick}
         />
-        <h3 className="month-navigation__title">{displayingMonth}</h3>
+        <h2 className="month-navigation__title">{displayingMonth}</h2>
         <Button
           className="month-navigation__next-month"
           text={<img src="icons/arrow.svg" alt="Previous Month Button" />}
