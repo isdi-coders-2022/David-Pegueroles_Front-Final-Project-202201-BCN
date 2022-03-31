@@ -15,7 +15,7 @@ const getCalendarDays = (
     .map((): string[] => {
       return new Array(7).fill(null).map((): string => {
         calendarDay++;
-        return format(new Date(year, month, calendarDay), "d-MM-yyyy");
+        return format(new Date(year, month, calendarDay), "yyyy-MM-d");
       });
     });
 
