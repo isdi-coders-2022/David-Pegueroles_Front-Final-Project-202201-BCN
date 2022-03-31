@@ -1,4 +1,7 @@
-import { AppointmentsAction } from "../../types/ActionTypes";
+import {
+  AppointmentsAction,
+  NavigationPositionAction,
+} from "../../types/ActionTypes";
 import { Appointment } from "../../types/Appointment";
 import actionsTypes from "./actionsTypes";
 
@@ -7,4 +10,11 @@ export const loadDailyAppointmentsAction = (
 ): AppointmentsAction => ({
   type: actionsTypes.loadDailyAppointments,
   appointments,
+});
+
+export const navigationPositionAction = (
+  navigationPosition: number
+): NavigationPositionAction => ({
+  type: actionsTypes.navigationPosition,
+  navigationPosition,
 });

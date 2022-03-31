@@ -1,4 +1,7 @@
-import { loadDailyAppointmentsAction } from "./actionsCreators";
+import {
+  loadDailyAppointmentsAction,
+  navigationPositionAction,
+} from "./actionsCreators";
 
 describe("Given a loadDailyAppointmentsAction function", () => {
   describe("When it receives a list of appointments", () => {
@@ -19,6 +22,21 @@ describe("Given a loadDailyAppointmentsAction function", () => {
       };
 
       const action = loadDailyAppointmentsAction(appointments);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a navigationPositionAction function", () => {
+  describe("When it receives a navigation position", () => {
+    test("Then it should return an action with type 'navigation-position' and the navigation position", () => {
+      const navigationPosition = 1;
+      const expectedAction = {
+        type: "navigation-position",
+        navigationPosition,
+      };
+
+      const action = navigationPositionAction(navigationPosition);
       expect(action).toEqual(expectedAction);
     });
   });
