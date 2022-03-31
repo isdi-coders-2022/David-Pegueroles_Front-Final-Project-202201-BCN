@@ -1,8 +1,8 @@
 import { Appointment } from "../../types/Appointment";
 import actionsTypes from "../actions/actionsTypes";
-import appointmentsReducer from "./appointmentsReducer";
+import dailyAppointmentsReducer from "./dailyAppointmentsReducer";
 
-describe("Given an appointmentsReducer function", () => {
+describe("Given a dailyAppointmentsReducer function", () => {
   describe("When it receives currentAppointments and a list of appointments", () => {
     test("Then it should return the list of appointments", () => {
       const currentAppointments: Appointment[] = [];
@@ -27,11 +27,14 @@ describe("Given an appointmentsReducer function", () => {
       ];
 
       const action = {
-        type: actionsTypes.loadAppointments,
+        type: actionsTypes.loadDailyAppointments,
         appointments,
       };
 
-      const reducerResult = appointmentsReducer(currentAppointments, action);
+      const reducerResult = dailyAppointmentsReducer(
+        currentAppointments,
+        action
+      );
 
       expect(reducerResult).toEqual(appointments);
     });
@@ -39,7 +42,7 @@ describe("Given an appointmentsReducer function", () => {
 
   describe("When it doesn't receive any currentAppointments nor action", () => {
     test("Then it should return an empty array", () => {
-      const reducerResult = appointmentsReducer();
+      const reducerResult = dailyAppointmentsReducer();
 
       expect(reducerResult).toHaveLength(0);
     });

@@ -2,14 +2,14 @@ import { Action, AppointmentsAction } from "../../types/ActionTypes";
 import { Appointment } from "../../types/Appointment";
 import actionsTypes from "../actions/actionsTypes";
 
-const appointmentsReducer = (
+const dailyAppointmentsReducer = (
   appointments: Appointment[] = [],
   action: Action = { type: "" }
 ) => {
   let newAppointments: Appointment[];
 
   switch (action.type) {
-    case actionsTypes.loadAppointments:
+    case actionsTypes.loadDailyAppointments:
       newAppointments = [...(action as AppointmentsAction).appointments];
       break;
 
@@ -20,4 +20,4 @@ const appointmentsReducer = (
   return newAppointments;
 };
 
-export default appointmentsReducer;
+export default dailyAppointmentsReducer;

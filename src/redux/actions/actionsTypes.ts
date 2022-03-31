@@ -1,5 +1,5 @@
 const actionsTypes = {
-  loadAppointments: "load-appointments",
+  loadDailyAppointments: "load-daily-appointments",
 };
 
 export default actionsTypes;
