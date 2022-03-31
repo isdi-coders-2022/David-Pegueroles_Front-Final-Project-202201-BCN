@@ -63,9 +63,10 @@ const CalendarPage = (): JSX.Element => {
         previousMonthOnclick={previousMonth}
         nextMonthOnclick={nextMonth}
         dayOnClick={changeSelectedDay}
+        selectedDay={selectedDay}
       />
 
-      {<SelectedDay date={selectedDay} />}
+      <SelectedDay date={selectedDay} />
 
       {sortedAppointmentsList.length !== 0 &&
         sortedAppointmentsList.map((appointment) => (
