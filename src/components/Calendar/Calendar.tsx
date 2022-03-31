@@ -15,6 +15,7 @@ interface Props {
 
   nextMonthOnclick: () => void;
   previousMonthOnclick: () => void;
+  dayOnClick: any;
 }
 
 const Calendar = ({
@@ -25,6 +26,7 @@ const Calendar = ({
   setDisplayingMonth,
   nextMonthOnclick,
   previousMonthOnclick,
+  dayOnClick,
 }: Props) => {
   const weekDays: string[] = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
@@ -44,12 +46,12 @@ const Calendar = ({
   const assignClassToDay = (date: string): string => {
     let classAssignment: string = "";
 
-    const receivedDay: string[] = date.split("-", 1);
-    const receivedDayNumber: number = parseInt(receivedDay[0]);
+    const receivedDay: string = date.split("-", 3)[2];
+    const receivedDayNumber: number = parseInt(receivedDay);
     const currentDay: number = new Date().getDate();
     const thisMonth: string = (new Date().getMonth() + 1).toString();
 
-    if (!date.split("-", 2)[1].endsWith(thisMonth)) {
+    if (!date.split("-", 3)[1].endsWith(thisMonth)) {
       classAssignment = " day--anotherMonth";
     } else if (receivedDayNumber < currentDay) {
       classAssignment = " day--passed";
@@ -90,11 +92,12 @@ const Calendar = ({
         <Week key={index} className="week">
           {week.map((day) => (
             <li
-              title={day.split("-", 1)[0]}
+              title={day.split("-", 3)[0]}
               key={day}
               className={`day${assignClassToDay(day)}`}
+              onClick={() => dayOnClick(day)}
             >
-              {day.split("-", 1)}
+              {day.split("-", 3)[2]}
             </li>
           ))}
         </Week>
