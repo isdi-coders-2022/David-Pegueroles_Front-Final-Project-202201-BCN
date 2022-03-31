@@ -6,7 +6,7 @@ import Calendar from "../../components/Calendar/Calendar";
 import SelectedDay from "../../components/SelectedDay/SelectedDay";
 import { navigationPositionAction } from "../../redux/actions/actionsCreators";
 import { RootState } from "../../redux/store";
-import { loadDailyAppointmentsThunk } from "../../redux/thunks/dailyAppointmentsThunk";
+import { loadDailyAppointmentsThunk } from "../../redux/thunks/appointmentsThunks";
 import { Appointment } from "../../types/Appointment";
 import getCalendarDays from "../../utils/getCalendarDays/getCalendarDays";
 
