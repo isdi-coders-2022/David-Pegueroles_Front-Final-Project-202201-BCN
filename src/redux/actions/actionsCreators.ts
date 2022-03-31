@@ -2,9 +2,9 @@ import { AppointmentsAction } from "../../types/ActionTypes";
 import { Appointment } from "../../types/Appointment";
 import actionsTypes from "./actionsTypes";
 
-export const loadAppointmentsAction = (
+export const loadDailyAppointmentsAction = (
   appointments: Appointment[]
 ): AppointmentsAction => ({
-  type: actionsTypes.loadAppointments,
+  type: actionsTypes.loadDailyAppointments,
   appointments,
 });
