@@ -63,7 +63,10 @@ const Nav = styled.nav`
         width: 60px;
         background-color: ${(props) => props.theme.palette.primary.main};
 
-        transform: translateY(-35px);
+        border: 1px solid;
+        border-color: ${(props) => props.theme.palette.secondary.main};
+
+        transform: translateY(-20px);
 
         .navigation__icon {
           height: 35px;

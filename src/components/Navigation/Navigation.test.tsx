@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { store } from "../../redux/store";
 import { theme } from "../../theme";
 import Navigation from "./Navigation";
 
@@ -10,7 +12,9 @@ describe("Given a Navigation component", () => {
       render(
         <BrowserRouter>
           <ThemeProvider theme={theme}>
-            <Navigation />
+            <Provider store={store}>
+              <Navigation />
+            </Provider>
           </ThemeProvider>
         </BrowserRouter>
       );

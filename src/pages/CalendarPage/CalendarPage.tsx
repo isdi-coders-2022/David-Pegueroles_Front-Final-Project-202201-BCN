@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AppointmentBanner from "../../components/AppointmentBanner/AppointmentBanner";
 import Calendar from "../../components/Calendar/Calendar";
 import SelectedDay from "../../components/SelectedDay/SelectedDay";
+import { navigationPositionAction } from "../../redux/actions/actionsCreators";
 import { RootState } from "../../redux/store";
 import { loadDailyAppointmentsThunk } from "../../redux/thunks/dailyAppointmentsThunk";
 import { Appointment } from "../../types/Appointment";
@@ -49,6 +50,7 @@ const CalendarPage = (): JSX.Element => {
   );
 
   useEffect(() => {
+    dispatch(navigationPositionAction(1));
     dispatch(loadDailyAppointmentsThunk(selectedDay));
   }, [dispatch, selectedDay]);
 

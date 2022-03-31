@@ -1,9 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
+import { Provider } from "react-redux";
 import { Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import App from "./App";
+import { store } from "./redux/store";
 import { theme } from "./theme";
 
 describe("Given an App component", () => {
@@ -18,7 +20,9 @@ describe("Given an App component", () => {
       render(
         <Router location={history.location} navigator={history}>
           <ThemeProvider theme={theme}>
-            <App />
+            <Provider store={store}>
+              <App />
+            </Provider>
           </ThemeProvider>
         </Router>
       );
