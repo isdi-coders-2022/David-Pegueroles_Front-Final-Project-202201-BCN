@@ -66,7 +66,11 @@ const CalendarPage = (): JSX.Element => {
         selectedDay={selectedDay}
       />
 
-      <SelectedDay date={selectedDay} />
+      {sortedAppointmentsList.length === 0 ? (
+        <SelectedDay date={selectedDay} isThereAnAppointment={false} />
+      ) : (
+        <SelectedDay date={selectedDay} isThereAnAppointment={true} />
+      )}
 
       {sortedAppointmentsList.length !== 0 &&
         sortedAppointmentsList.map((appointment) => (
