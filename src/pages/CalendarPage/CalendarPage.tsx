@@ -1,6 +1,12 @@
 import { format } from "date-fns";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import AppointmentBanner from "../../components/AppointmentBanner/AppointmentBanner";
 import Calendar from "../../components/Calendar/Calendar";
+import SelectedDay from "../../components/SelectedDay/SelectedDay";
+import { RootState } from "../../redux/store";
+import { loadDailyAppointmentsThunk } from "../../redux/thunks/dailyAppointmentsThunk";
+import { Appointment } from "../../types/Appointment";
 import getCalendarDays from "../../utils/getCalendarDays/getCalendarDays";
 
 const CalendarPage = (): JSX.Element => {
@@ -8,19 +14,43 @@ const CalendarPage = (): JSX.Element => {
 
   const [currentMonth, setCurrentMonth] = useState<number>(0);
 
+  const [selectedDay, setSelectedDay] = useState<string>(
+    format(new Date(), "yyyy-MM-d")
+  );
+
+  const changeSelectedDay = (date: string) => {
+    setSelectedDay(date);
+  };
+
   const [displayingMonth, setDisplayingMonth] = useState<string>(
     format(new Date(), "MMMM yyyy")
   );
 
   const previousMonth = () => {
-    const newMonth = currentMonth - 1;
+    const newMonth: number = currentMonth - 1;
     setCurrentMonth(newMonth);
   };
 
   const nextMonth = () => {
-    const newMonth = currentMonth + 1;
+    const newMonth: number = currentMonth + 1;
     setCurrentMonth(newMonth);
   };
+
+  const dispatch = useDispatch();
+
+  const dailyAppointmentsList: Appointment[] = useSelector(
+    (state: RootState) => state.dailyAppointments
+  );
+
+  const sortedAppointmentsList: Appointment[] = dailyAppointmentsList.sort(
+    (a, b) =>
+      parseInt(a.hour.split(":")[0] + a.hour.split(":")[1]) -
+      parseInt(b.hour.split(":")[0] + b.hour.split(":")[1])
+  );
+
+  useEffect(() => {
+    dispatch(loadDailyAppointmentsThunk(selectedDay));
+  }, [dispatch, selectedDay]);
 
   return (
     <>
@@ -32,7 +62,15 @@ const CalendarPage = (): JSX.Element => {
         setDisplayingMonth={setDisplayingMonth}
         previousMonthOnclick={previousMonth}
         nextMonthOnclick={nextMonth}
+        dayOnClick={changeSelectedDay}
       />
+
+      {<SelectedDay date={selectedDay} />}
+
+      {sortedAppointmentsList.length !== 0 &&
+        sortedAppointmentsList.map((appointment) => (
+          <AppointmentBanner key={appointment.id} appointment={appointment} />
+        ))}
     </>
   );
 };

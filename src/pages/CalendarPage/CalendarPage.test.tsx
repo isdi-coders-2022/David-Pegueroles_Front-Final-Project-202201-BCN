@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
+import { store } from "../../redux/store";
 import { theme } from "../../theme";
 import CalendarPage from "./CalendarPage";
 
@@ -19,7 +21,9 @@ describe("Given a CalendarPage component", () => {
 
       render(
         <ThemeProvider theme={theme}>
-          <CalendarPage />
+          <Provider store={store}>
+            <CalendarPage />
+          </Provider>
         </ThemeProvider>
       );
 
@@ -38,7 +42,9 @@ describe("Given a CalendarPage component", () => {
 
       render(
         <ThemeProvider theme={theme}>
-          <CalendarPage />
+          <Provider store={store}>
+            <CalendarPage />
+          </Provider>
         </ThemeProvider>
       );
 
@@ -71,7 +77,9 @@ describe("Given a CalendarPage component", () => {
 
       render(
         <ThemeProvider theme={theme}>
-          <CalendarPage />
+          <Provider store={store}>
+            <CalendarPage />
+          </Provider>
         </ThemeProvider>
       );
 
