@@ -17,6 +17,7 @@ interface Props {
   nextMonthOnclick: () => void;
   previousMonthOnclick: () => void;
   dayOnClick: any;
+  selectedDay: string;
 }
 
 const Calendar = ({
@@ -28,6 +29,7 @@ const Calendar = ({
   nextMonthOnclick,
   previousMonthOnclick,
   dayOnClick,
+  selectedDay,
 }: Props) => {
   const weekDays: string[] = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
@@ -60,6 +62,10 @@ const Calendar = ({
       classAssignment = " day--current";
     } else {
       classAssignment = " day--coming";
+    }
+
+    if (selectedDay === date) {
+      classAssignment += " selected";
     }
 
     return classAssignment;
