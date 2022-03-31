@@ -58,6 +58,7 @@ describe("Given a Calendar component", () => {
   const nextMonthOnclick: () => void = jest.fn();
   const previousMonthOnclick: () => void = jest.fn();
   const changeSelectedDate: () => void = jest.fn();
+  const selectedDay = "2022-03-29";
 
   describe("When it's rendered with all the required props, the currentMonth is 0 & the displayingMonth is '03-2022'", () => {
     const currentMonth: number = 0;
@@ -77,6 +78,7 @@ describe("Given a Calendar component", () => {
             nextMonthOnclick={nextMonthOnclick}
             previousMonthOnclick={previousMonthOnclick}
             dayOnClick={changeSelectedDate}
+            selectedDay={selectedDay}
           />
         </ThemeProvider>
       );
@@ -102,6 +104,7 @@ describe("Given a Calendar component", () => {
             nextMonthOnclick={nextMonthOnclick}
             previousMonthOnclick={previousMonthOnclick}
             dayOnClick={changeSelectedDate}
+            selectedDay={selectedDay}
           />
         </ThemeProvider>
       );
@@ -140,6 +143,7 @@ describe("Given a Calendar component", () => {
             nextMonthOnclick={nextMonthOnclick}
             previousMonthOnclick={previousMonthOnclick}
             dayOnClick={changeSelectedDate}
+            selectedDay={selectedDay}
           />
         </ThemeProvider>
       );
@@ -172,6 +176,7 @@ describe("Given a Calendar component", () => {
             nextMonthOnclick={nextMonthOnclick}
             previousMonthOnclick={previousMonthOnclick}
             dayOnClick={changeSelectedDate}
+            selectedDay={selectedDay}
           />
         </ThemeProvider>
       );
