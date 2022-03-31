@@ -3,7 +3,7 @@ import actionsTypes from "../actions/actionsTypes";
 import dailyAppointmentsReducer from "./dailyAppointmentsReducer";
 
 describe("Given a dailyAppointmentsReducer function", () => {
-  describe("When it receives currentAppointments and a list of appointments", () => {
+  describe("When it receives currentAppointments and an action", () => {
     test("Then it should return the list of appointments", () => {
       const currentAppointments: Appointment[] = [];
 
