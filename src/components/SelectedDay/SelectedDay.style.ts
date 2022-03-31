@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 const Title = styled.h2`
   font-family: "Lexend Deca";
-  margin: 0;
-  margin-left: 20px;
-  margin-bottom: 30px;
+  margin: 0 50px 30px 20px;
   padding: 0;
 `;
 
