@@ -1,6 +1,6 @@
 import { Appointment } from "../../types/Appointment";
 import actionsTypes from "../actions/actionsTypes";
-import { loadDailyAppointmentsThunk } from "./dailyAppointmentsThunk";
+import { loadDailyAppointmentsThunk } from "./appointmentsThunks";
 
 describe("Given a loadDailyAppointmentsThunk function", () => {
   describe("When it's invoked", () => {
