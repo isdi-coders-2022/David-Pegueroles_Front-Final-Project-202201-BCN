@@ -120,4 +120,21 @@ export const Week = styled.ul`
   .day--coming {
     color: ${(props) => props.theme.palette.calendar.day.coming};
   }
+
+  .selected {
+    transition: 1s ease;
+    &::after {
+      content: "";
+      width: 44px;
+      height: 44px;
+
+      border: 2px solid;
+      border-color: ${(props) => props.theme.palette.calendar.day.appointment};
+      border-radius: 50%;
+
+      position: absolute;
+      left: 5px;
+      top: -10px;
+    }
+  }
 `;
