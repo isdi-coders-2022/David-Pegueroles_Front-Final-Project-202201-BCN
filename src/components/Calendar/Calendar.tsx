@@ -1,6 +1,7 @@
 import { addMonths, format } from "date-fns";
 import { useEffect } from "react";
 import Button from "../../components/Button/Button";
+import changeDateFormat from "../../utils/changeDateFormat/changeDateFormat";
 import getCalendarDays from "../../utils/getCalendarDays/getCalendarDays";
 import { CalendarNavigation, Week, WeekDays } from "./Calendar.style";
 
@@ -92,7 +93,7 @@ const Calendar = ({
         <Week key={index} className="week">
           {week.map((day) => (
             <li
-              title={day.split("-", 3)[0]}
+              title={changeDateFormat(day, false)}
               key={day}
               className={`day${assignClassToDay(day)}`}
               onClick={() => dayOnClick(day)}
