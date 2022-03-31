@@ -7,3 +7,7 @@ export interface Action {
 export interface AppointmentsAction extends Action {
   appointments: Appointment[];
 }
+
+export interface NavigationPositionAction extends Action {
+  navigationPosition: number;
+}
