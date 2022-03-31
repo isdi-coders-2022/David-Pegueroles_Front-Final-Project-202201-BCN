@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../theme";
 import Calendar from "./Calendar";
@@ -56,6 +57,7 @@ describe("Given a Calendar component", () => {
     jest.fn();
   const nextMonthOnclick: () => void = jest.fn();
   const previousMonthOnclick: () => void = jest.fn();
+  const changeSelectedDate: () => void = jest.fn();
 
   describe("When it's rendered with all the required props, the currentMonth is 0 & the displayingMonth is '03-2022'", () => {
     const currentMonth: number = 0;
@@ -74,6 +76,7 @@ describe("Given a Calendar component", () => {
             setDisplayingMonth={setDisplayingMonth}
             nextMonthOnclick={nextMonthOnclick}
             previousMonthOnclick={previousMonthOnclick}
+            dayOnClick={changeSelectedDate}
           />
         </ThemeProvider>
       );
@@ -101,6 +104,7 @@ describe("Given a Calendar component", () => {
             setDisplayingMonth={setDisplayingMonth}
             nextMonthOnclick={nextMonthOnclick}
             previousMonthOnclick={previousMonthOnclick}
+            dayOnClick={changeSelectedDate}
           />
         </ThemeProvider>
       );
@@ -142,6 +146,7 @@ describe("Given a Calendar component", () => {
             setDisplayingMonth={setDisplayingMonth}
             nextMonthOnclick={nextMonthOnclick}
             previousMonthOnclick={previousMonthOnclick}
+            dayOnClick={changeSelectedDate}
           />
         </ThemeProvider>
       );
@@ -153,6 +158,38 @@ describe("Given a Calendar component", () => {
 
         expect(dayName).toBeInTheDocument();
       });
+    });
+  });
+
+  describe("When it's rendered with all the props and the user clicks at the day 15", () => {
+    test("Then it should call the changeSelectedDate function", () => {
+      const currentMonth: number = 0;
+      const displayingMonth: string = "03-2022";
+
+      const dayNumber = /15/i;
+
+      render(
+        <ThemeProvider theme={theme}>
+          <Calendar
+            days={days}
+            setDays={setDays}
+            currentMonth={currentMonth}
+            displayingMonth={displayingMonth}
+            setDisplayingMonth={setDisplayingMonth}
+            nextMonthOnclick={nextMonthOnclick}
+            previousMonthOnclick={previousMonthOnclick}
+            dayOnClick={changeSelectedDate}
+          />
+        </ThemeProvider>
+      );
+
+      const day: HTMLElement = screen.getByRole("listitem", {
+        name: dayNumber,
+      });
+
+      userEvent.click(day);
+
+      expect(changeSelectedDate).toHaveBeenCalled();
     });
   });
 });

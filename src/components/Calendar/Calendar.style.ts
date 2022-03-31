@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import "@fontsource/ibm-plex-sans";
 
 export const CalendarNavigation = styled.nav`
   display: flex;
@@ -6,6 +7,8 @@ export const CalendarNavigation = styled.nav`
   align-items: center;
 
   margin-bottom: 10px;
+
+  font-family: "IBM Plex Sans";
 
   .month-navigation {
     &__previous-month,
@@ -16,8 +19,8 @@ export const CalendarNavigation = styled.nav`
       border: none;
 
       img {
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
 
         filter: ${(props) => props.theme.palette.calendar.navigation};
       }
@@ -32,7 +35,9 @@ export const CalendarNavigation = styled.nav`
     }
 
     &__title {
-      font-size: 20px;
+      text-align: center;
+      font-size: 25px;
+      width: 200px;
     }
   }
 `;
@@ -51,7 +56,9 @@ export const WeekDays = styled.ul`
     width: 14vw;
     text-align: center;
 
-    font-size: 14px;
+    font-family: "IBM Plex Sans";
+    font-size: 15px;
+    font-weight: bold;
   }
 `;
 
@@ -64,6 +71,9 @@ export const Week = styled.ul`
   justify-content: center;
   align-items: center;
 
+  font-family: "IBM Plex Sans";
+  font-size: 20px;
+
   .day {
     width: 14vw;
     height: 70px;
@@ -71,6 +81,8 @@ export const Week = styled.ul`
     text-align: center;
 
     position: relative;
+
+    cursor: pointer;
   }
 
   .day--anotherMonth {
@@ -89,8 +101,8 @@ export const Week = styled.ul`
 
     &::before {
       content: "";
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
 
       background-color: ${(props) => props.theme.palette.primary.main};
 
