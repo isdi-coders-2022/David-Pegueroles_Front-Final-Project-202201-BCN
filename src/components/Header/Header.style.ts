@@ -12,6 +12,8 @@ const HeaderImage = styled.header`
 
   background-color: ${(props) => props.theme.palette.primary.main};
 
+  z-index: 10;
+
   &::before {
     content: "";
     width: 100vw;
