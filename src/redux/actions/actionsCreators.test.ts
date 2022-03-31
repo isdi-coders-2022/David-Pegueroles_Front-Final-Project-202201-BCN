@@ -14,7 +14,7 @@ describe("Given a loadDailyAppointmentsAction function", () => {
         },
       ];
       const expectedAction = {
-        type: "load-appointments",
+        type: "load-daily-appointments",
         appointments,
       };
 
