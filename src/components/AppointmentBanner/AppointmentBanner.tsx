@@ -3,11 +3,15 @@ import Card from "./AppointmentBanner.style";
 
 interface Props {
   appointment: Appointment;
+  actionOnClick: (id: string | undefined) => void;
 }
 
-const AppointmentBanner = ({ appointment }: Props): JSX.Element => {
+const AppointmentBanner = ({
+  appointment,
+  actionOnClick,
+}: Props): JSX.Element => {
   return (
-    <Card className="appointment">
+    <Card className="appointment" onClick={() => actionOnClick(appointment.id)}>
       <li className="appointment__hour" title={appointment.hour}>
         {appointment.hour}
       </li>
