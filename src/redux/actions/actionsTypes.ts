@@ -1,6 +1,7 @@
 const actionsTypes = {
-  loadDailyAppointments: "load-daily-appointments",
   navigationPosition: "navigation-position",
+  loadDailyAppointments: "load-daily-appointments",
+  loadAppointmentInfo: "load-appointment-information",
 };
 
 export default actionsTypes;
