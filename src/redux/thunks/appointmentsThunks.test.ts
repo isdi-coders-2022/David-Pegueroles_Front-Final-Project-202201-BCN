@@ -1,8 +1,8 @@
 import { errorHadlers } from "../../mocks/handlers";
 import { server } from "../../mocks/server";
 import { Appointment } from "../../types/Appointment";
-import actionsTypes from "../actions/actionsTypes";
 import {
+  CreateAppointmentThunk,
   deleteAppointmentThunk,
   loadAppointmentInfoThunk,
   loadDailyAppointmentsThunk,
@@ -34,7 +34,7 @@ describe("Given a loadDailyAppointmentsThunk function", () => {
         },
       ];
       const action = {
-        type: actionsTypes.loadDailyAppointments,
+        type: "load-daily-appointments",
         appointments,
       };
 
@@ -63,7 +63,7 @@ describe("Given a loadAppointmentInfoThunk function", () => {
         id: "624210049666edf108d06d69",
       };
       const action = {
-        type: actionsTypes.loadAppointmentInfo,
+        type: "load-appointment-information",
         appointment,
       };
 
@@ -83,7 +83,7 @@ describe("Given a deleteAppointmentThunk function", () => {
       const id = "624210049666edf108d06d69";
 
       const action = {
-        type: actionsTypes.deleteAppointment,
+        type: "delete-appointment",
         id,
       };
 
@@ -103,7 +103,7 @@ describe("Given a deleteAppointmentThunk function", () => {
       const id = "12345";
 
       const action = {
-        type: actionsTypes.deleteAppointment,
+        type: "delete-appointment",
         id,
       };
 
@@ -114,6 +114,28 @@ describe("Given a deleteAppointmentThunk function", () => {
 
       expect(dispatch).not.toHaveBeenCalled();
       expect(dispatch).not.toHaveBeenCalledWith(action);
+    });
+  });
+});
+
+describe("Given a CreateAppointmentThunk function", () => {
+  describe("When it's called with an existent id", () => {
+    test("Then it should call dispatch", async () => {
+      const appointment: Appointment = {
+        name: "Do something",
+        description: "This should do",
+        date: "2022-03-29",
+        category: "Work",
+        location: "C/ Diputació 37, Barcelona",
+        hour: "10:00",
+        id: "6246d0c6db9359712d8022cf",
+      };
+      const dispatch = jest.fn();
+
+      const createThunk = CreateAppointmentThunk(appointment);
+      await createThunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });

@@ -61,6 +61,22 @@ export const handlers = [
         })
       )
   ),
+  rest.post(
+    `${process.env.REACT_APP_API}calendar/appointment/new`,
+    (req, res, ctx) =>
+      res(
+        ctx.status(201),
+        ctx.json({
+          name: "Do something",
+          description: "This should do",
+          date: "2022-03-29",
+          category: "Work",
+          location: "C/ Diputació 37, Barcelona",
+          hour: "10:00",
+          id: "6246d0c6db9359712d8022cf",
+        })
+      )
+  ),
 ];
 
 export const errorHadlers = [
