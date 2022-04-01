@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { store } from "../../redux/store";
 import { theme } from "../../theme";
@@ -20,11 +21,13 @@ describe("Given a CalendarPage component", () => {
       ];
 
       render(
-        <ThemeProvider theme={theme}>
-          <Provider store={store}>
-            <CalendarPage />
-          </Provider>
-        </ThemeProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <Provider store={store}>
+              <CalendarPage />
+            </Provider>
+          </ThemeProvider>
+        </BrowserRouter>
       );
 
       listOfWeekDays.forEach((weekDay) => {
@@ -38,14 +41,16 @@ describe("Given a CalendarPage component", () => {
 
     test("Then it should display a button that when clicked it should change the heading 'March 2022' to 'February 2022'", () => {
       const buttonAltText = /previous month button/i;
-      const headingText = /march 2022/i;
+      const headingText = /april 2022/i;
 
       render(
-        <ThemeProvider theme={theme}>
-          <Provider store={store}>
-            <CalendarPage />
-          </Provider>
-        </ThemeProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <Provider store={store}>
+              <CalendarPage />
+            </Provider>
+          </ThemeProvider>
+        </BrowserRouter>
       );
 
       const previousMonthButton = screen.getByRole("button", {
@@ -60,7 +65,7 @@ describe("Given a CalendarPage component", () => {
 
       userEvent.click(previousMonthButton);
 
-      const updatedHeadingText = /february 2022/i;
+      const updatedHeadingText = /march 2022/i;
 
       const updatedCalendarHeading = screen.getByRole("heading", {
         name: updatedHeadingText,
@@ -73,14 +78,16 @@ describe("Given a CalendarPage component", () => {
 
     test("Then it should display a button that when clicked it should change the heading 'March 2022' to 'April 2022'", () => {
       const buttonAltText = /next month button/i;
-      const headingText = /march 2022/i;
+      const headingText = /april 2022/i;
 
       render(
-        <ThemeProvider theme={theme}>
-          <Provider store={store}>
-            <CalendarPage />
-          </Provider>
-        </ThemeProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <Provider store={store}>
+              <CalendarPage />
+            </Provider>
+          </ThemeProvider>
+        </BrowserRouter>
       );
 
       const nextMonthButton = screen.getByRole("button", {
@@ -95,7 +102,7 @@ describe("Given a CalendarPage component", () => {
 
       userEvent.click(nextMonthButton);
 
-      const updatedHeadingText = /april 2022/i;
+      const updatedHeadingText = /may 2022/i;
 
       const updatedCalendarHeading = screen.getByRole("heading", {
         name: updatedHeadingText,
