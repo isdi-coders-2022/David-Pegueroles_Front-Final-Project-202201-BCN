@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation/Navigation";
 import AppointmentPage from "./pages/AppointmentPage/AppointmentPage";
 import CalendarPage from "./pages/CalendarPage/CalendarPage";
 import FormPage from "./pages/FormPage/FormPage";
+import MapPage from "./pages/MapPage/MapPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           />
           <Route path="/calendar/appointment/new" element={<FormPage />} />
         </Route>
+        <Route path="/map" element={<MapPage />} />
         <Route path="*" element="" />
       </Routes>
     </>

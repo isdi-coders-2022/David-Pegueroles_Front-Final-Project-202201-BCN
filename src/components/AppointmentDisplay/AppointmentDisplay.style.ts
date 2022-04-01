@@ -55,6 +55,10 @@ const AppointmentInfo = styled.section`
     }
   }
 
+  .map {
+    margin-bottom: 20px;
+  }
+
   .information {
     list-style: none;
 

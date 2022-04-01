@@ -57,6 +57,18 @@ const AppointmentDisplay = ({
         </li>
       </ul>
 
+      <section className="map">
+        <iframe
+          title="Map"
+          width={370}
+          height={200}
+          frameBorder="0"
+          style={{ border: 0, borderRadius: 13 }}
+          src={`https://www.google.com/maps/embed/v1/search?key=AIzaSyAK5boJsMKK7FDamPHx_p-dugiERdMRiG8&q=${appointment.location}&zoom=15`}
+          allowFullScreen
+        ></iframe>
+      </section>
+
       <ul className="dispatch-buttons">
         <li title="Edit">
           <img
