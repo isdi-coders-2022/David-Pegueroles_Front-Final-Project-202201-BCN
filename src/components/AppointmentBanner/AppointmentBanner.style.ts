@@ -79,6 +79,23 @@ const Card = styled.ul`
       filter: ${(props) => props.theme.palette.icons.inverted};
     }
   }
+
+  @media (min-width: ${(props) => props.theme.mediaQueries}) {
+    margin: 0;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    padding: 0;
+
+    width: 60vw;
+    min-height: 80px;
+    max-height: 80px;
+
+    .appointment__name {
+      left: 0;
+      width: 30vw;
+      margin-right: 20px;
+    }
+  }
 `;
 
 export default Card;
