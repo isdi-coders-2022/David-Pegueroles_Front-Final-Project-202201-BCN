@@ -10,18 +10,20 @@ describe("Given a dailyAppointmentsReducer function", () => {
       const appointments = [
         {
           name: "Do something",
-          description: "This should do",
-          date: "2022-03-29T16:00:00.000Z",
+          description: "This is another thing to do",
+          date: "2022-03-31",
           category: "Work",
           location: "C/ Diputació 37, Barcelona",
-          id: "624210049666edf108d06d69",
+          hour: "12:00",
+          id: "624212b09666edf108d06d6a",
         },
         {
           name: "Do something else",
           description: "This is another thing to do",
-          date: "2022-03-30T16:00:00.000Z",
+          date: "2022-03-31",
           category: "Work",
           location: "C/ Diputació 37, Barcelona",
+          hour: "12:00",
           id: "624212b09666edf108d06d6a",
         },
       ];
@@ -37,6 +39,55 @@ describe("Given a dailyAppointmentsReducer function", () => {
       );
 
       expect(reducerResult).toEqual(appointments);
+    });
+  });
+
+  describe("When it receives an id and an action", () => {
+    test("Then it should return the id", () => {
+      const currentAppointments: Appointment[] = [
+        {
+          name: "Do something",
+          description: "This is another thing to do",
+          date: "2022-03-31",
+          category: "Work",
+          location: "C/ Diputació 37, Barcelona",
+          hour: "12:00",
+          id: "624212b09666edf108d06d6a",
+        },
+        {
+          name: "Do something else",
+          description: "This is another thing to do",
+          date: "2022-03-31",
+          category: "Work",
+          location: "C/ Diputació 37, Barcelona",
+          hour: "12:00",
+          id: "624212b09666edf108d06d6b",
+        },
+      ];
+
+      const expectedResult = [
+        {
+          name: "Do something",
+          description: "This is another thing to do",
+          date: "2022-03-31",
+          category: "Work",
+          location: "C/ Diputació 37, Barcelona",
+          hour: "12:00",
+          id: "624212b09666edf108d06d6a",
+        },
+      ];
+
+      const action = {
+        type: actionsTypes.deleteAppointment,
+        id: currentAppointments[1].id,
+      };
+
+      const reducerResult = dailyAppointmentsReducer(
+        currentAppointments,
+        action
+      );
+
+      expect(reducerResult).toEqual(expectedResult);
     });
   });
 
