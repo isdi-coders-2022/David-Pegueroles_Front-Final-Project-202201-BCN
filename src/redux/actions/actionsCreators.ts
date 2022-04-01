@@ -1,4 +1,5 @@
 import {
+  AppointmentAction,
   AppointmentsAction,
   NavigationPositionAction,
 } from "../../types/ActionTypes";
@@ -17,4 +18,11 @@ export const navigationPositionAction = (
 ): NavigationPositionAction => ({
   type: actionsTypes.navigationPosition,
   navigationPosition,
+});
+
+export const loadAppointmentInfoAction = (
+  appointment: Appointment
+): AppointmentAction => ({
+  type: actionsTypes.loadAppointmentInfo,
+  appointment,
 });

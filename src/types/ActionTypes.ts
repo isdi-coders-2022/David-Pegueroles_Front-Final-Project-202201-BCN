@@ -11,3 +11,7 @@ export interface AppointmentsAction extends Action {
 export interface NavigationPositionAction extends Action {
   navigationPosition: number;
 }
+
+export interface AppointmentAction extends Action {
+  appointment: Appointment;
+}
