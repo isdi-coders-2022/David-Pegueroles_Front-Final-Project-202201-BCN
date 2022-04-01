@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AppointmentDisplay from "../../components/Appointment/AppointmentDisplay";
+import AppointmentDisplay from "../../components/AppointmentDisplay/AppointmentDisplay";
 import { navigationPositionAction } from "../../redux/actions/actionsCreators";
 import { RootState } from "../../redux/store";
 import { loadAppointmentInfoThunk } from "../../redux/thunks/appointmentsThunks";
