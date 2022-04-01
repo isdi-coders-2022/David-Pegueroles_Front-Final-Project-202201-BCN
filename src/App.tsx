@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
 import AppointmentPage from "./pages/AppointmentPage/AppointmentPage";
 import CalendarPage from "./pages/CalendarPage/CalendarPage";
+import FormPage from "./pages/FormPage/FormPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             path="/calendar/appointment/:idAppointment"
             element={<AppointmentPage />}
           />
+          <Route path="/calendar/appointment/new" element={<FormPage />} />
         </Route>
         <Route path="*" element="" />
       </Routes>
