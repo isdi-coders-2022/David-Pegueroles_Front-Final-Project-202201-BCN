@@ -1,4 +1,6 @@
 import { render, screen } from "@testing-library/react";
+import { ThemeProvider } from "styled-components";
+import { theme } from "../../theme";
 import AppointmentDisplay from "./AppointmentDisplay";
 
 describe("Given an AppointmentDisplay component", () => {
@@ -16,8 +18,11 @@ describe("Given an AppointmentDisplay component", () => {
         id: "624210049666edf108d06d69",
       };
 
-      render(<AppointmentDisplay appointment={appointmentInfo} />);
-
+      render(
+        <ThemeProvider theme={theme}>
+          <AppointmentDisplay appointment={appointmentInfo} />
+        </ThemeProvider>
+      );
       const heading = screen.getByRole("heading", { name: appointmentName });
 
       expect(heading).toBeInTheDocument();
@@ -38,7 +43,11 @@ describe("Given an AppointmentDisplay component", () => {
         id: "624210049666edf108d06d69",
       };
 
-      render(<AppointmentDisplay appointment={appointmentInfo} />);
+      render(
+        <ThemeProvider theme={theme}>
+          <AppointmentDisplay appointment={appointmentInfo} />
+        </ThemeProvider>
+      );
 
       const receivedDate = screen.getByRole("listitem", { name: date });
       const receivedHour = screen.getByRole("listitem", { name: hour });
