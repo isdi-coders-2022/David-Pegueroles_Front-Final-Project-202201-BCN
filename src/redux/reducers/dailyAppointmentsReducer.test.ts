@@ -91,6 +91,46 @@ describe("Given a dailyAppointmentsReducer function", () => {
     });
   });
 
+  describe("When it receives currentAppointments and an action with an appointment", () => {
+    test("Then it should return a list with the currentAppointments and the appointment", () => {
+      const currentAppointments: Appointment[] = [];
+
+      const appointment = {
+        name: "Do something",
+        description: "This is another thing to do",
+        date: "2022-03-31",
+        category: "Work",
+        location: "C/ Diputació 37, Barcelona",
+        hour: "12:00",
+        id: "624212b09666edf108d06d6a",
+      };
+
+      const expectedAppointment = [
+        {
+          name: "Do something",
+          description: "This is another thing to do",
+          date: "2022-03-31",
+          category: "Work",
+          location: "C/ Diputació 37, Barcelona",
+          hour: "12:00",
+          id: "624212b09666edf108d06d6a",
+        },
+      ];
+
+      const action = {
+        type: actionsTypes.createAppointment,
+        appointment,
+      };
+
+      const reducerResult = dailyAppointmentsReducer(
+        currentAppointments,
+        action
+      );
+
+      expect(reducerResult).toEqual(expectedAppointment);
+    });
+  });
+
   describe("When it doesn't receive any currentAppointments nor action", () => {
     test("Then it should return an empty array", () => {
       const reducerResult = dailyAppointmentsReducer();

@@ -19,3 +19,7 @@ export interface AppointmentAction extends Action {
 export interface DeleteAction extends Action {
   id: string | undefined;
 }
+
+export interface CreateAppointmentAction extends Action {
+  appointment: Appointment;
+}
