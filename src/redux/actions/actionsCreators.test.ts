@@ -1,4 +1,5 @@
 import {
+  createAppointmentAction,
   deleteAppointmentAction,
   loadAppointmentInfoAction,
   loadDailyAppointmentsAction,
@@ -78,6 +79,29 @@ describe("Given a deleteAppointmentAction function", () => {
       };
 
       const action = deleteAppointmentAction(id);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a createAppointmentAction function", () => {
+  describe("When it receives an appointment", () => {
+    test("Then it should return an action with type 'load-appointment-information' and the appointment", () => {
+      const appointment = {
+        name: "Do something",
+        description: "This should do",
+        date: "2022-03-29",
+        hour: "10:00",
+        category: "Work",
+        location: "C/ Diputació 37, Barcelona",
+      };
+
+      const expectedAction = {
+        type: "create-appointment",
+        appointment,
+      };
+
+      const action = createAppointmentAction(appointment);
       expect(action).toEqual(expectedAction);
     });
   });
