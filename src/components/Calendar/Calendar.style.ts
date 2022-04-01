@@ -122,7 +122,12 @@ export const Week = styled.ul`
   }
 
   .selected {
-    transition: 1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    position: relative;
+
     &::after {
       content: "";
       width: 44px;
@@ -133,7 +138,6 @@ export const Week = styled.ul`
       border-radius: 50%;
 
       position: absolute;
-      left: 5px;
       top: -10px;
     }
   }

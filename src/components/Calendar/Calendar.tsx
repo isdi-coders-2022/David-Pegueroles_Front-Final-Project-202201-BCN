@@ -16,7 +16,7 @@ interface Props {
 
   nextMonthOnclick: () => void;
   previousMonthOnclick: () => void;
-  dayOnClick: any;
+  dayOnClick: (day: string) => void;
   selectedDay: string;
 }
 
