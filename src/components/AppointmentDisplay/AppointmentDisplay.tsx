@@ -4,9 +4,13 @@ import AppointmentInfo from "./AppointmentDisplay.style";
 
 interface Props {
   appointment: Appointment;
+  deleteOnClick: (id: string | undefined) => void;
 }
 
-const AppointmentDisplay = ({ appointment }: Props): JSX.Element => {
+const AppointmentDisplay = ({
+  appointment,
+  deleteOnClick,
+}: Props): JSX.Element => {
   return (
     <AppointmentInfo>
       <h3 className="title">{appointment.name}</h3>
@@ -54,18 +58,18 @@ const AppointmentDisplay = ({ appointment }: Props): JSX.Element => {
       </ul>
 
       <ul className="dispatch-buttons">
-        <li>
+        <li title="Edit">
           <img
             src="/icons/edit.svg"
             className="dispatch-buttons__edit"
-            alt="Edit"
+            alt="Edit icon"
           />
         </li>
-        <li>
+        <li onClick={() => deleteOnClick(appointment.id)} title="Delete">
           <img
             src="/icons/trash.svg"
             className="dispatch-buttons__delete"
-            alt="Delete"
+            alt="Delete icon"
           />
         </li>
       </ul>
