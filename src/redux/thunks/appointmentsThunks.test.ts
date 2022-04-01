@@ -1,6 +1,9 @@
+import { errorHadlers } from "../../mocks/handlers";
+import { server } from "../../mocks/server";
 import { Appointment } from "../../types/Appointment";
 import actionsTypes from "../actions/actionsTypes";
 import {
+  deleteAppointmentThunk,
   loadAppointmentInfoThunk,
   loadDailyAppointmentsThunk,
 } from "./appointmentsThunks";
@@ -70,6 +73,47 @@ describe("Given a loadAppointmentInfoThunk function", () => {
       await dailyAppointmentsThunk(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
+
+describe("Given a deleteAppointmentThunk function", () => {
+  describe("When it's invoked with the id '624210049666edf108d06d69'", () => {
+    test("Then it should call the dispatch function", async () => {
+      const id = "624210049666edf108d06d69";
+
+      const action = {
+        type: actionsTypes.deleteAppointment,
+        id,
+      };
+
+      const dispatch = jest.fn();
+      const deleteAppointment = deleteAppointmentThunk(id);
+
+      await deleteAppointment(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+
+  describe("When it's called with a wrong id", () => {
+    test("Then the dispatch should not be called", async () => {
+      server.use(...errorHadlers);
+
+      const id = "12345";
+
+      const action = {
+        type: actionsTypes.deleteAppointment,
+        id,
+      };
+
+      const dispatch = jest.fn();
+      const deleteAppointment = deleteAppointmentThunk(id);
+
+      await deleteAppointment(dispatch);
+
+      expect(dispatch).not.toHaveBeenCalled();
+      expect(dispatch).not.toHaveBeenCalledWith(action);
     });
   });
 });
