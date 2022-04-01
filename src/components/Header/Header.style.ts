@@ -31,6 +31,7 @@ const HeaderImage = styled.header`
 
     .logo {
       height: 80px;
+      width: 163px;
       margin: auto;
     }
   }
@@ -54,7 +55,7 @@ const HeaderImage = styled.header`
       margin-right: 7px;
 
       .logo {
-        height: auto;
+        height: 291px;
         width: 143px;
       }
     }
