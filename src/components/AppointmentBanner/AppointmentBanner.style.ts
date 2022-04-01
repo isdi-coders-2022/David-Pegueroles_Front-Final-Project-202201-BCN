@@ -58,13 +58,15 @@ const Card = styled.ul`
   .appointment__edit {
     position: relative;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     &::before {
       content: "";
       position: absolute;
-      left: -3.6vw;
-      top: -17.5px;
 
-      width: 67px;
+      width: 16vw;
       height: 80px;
 
       background-color: ${(props) => props.theme.palette.secondary.main};
