@@ -55,7 +55,7 @@ const Navigation = (): JSX.Element => {
           </Link>
         </li>
         <li className={`navigation__item${isSelected(3)}`}>
-          <Link to="/new">
+          <Link to="/calendar/appointment/new">
             <img
               src="/icons/plus.svg"
               className="navigation__icon"
