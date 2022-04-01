@@ -34,3 +34,8 @@ export const deleteAppointmentAction = (
   type: actionsTypes.deleteAppointment,
   id,
 });
+
+export const createAppointmentAction = (appointment: Appointment) => ({
+  type: actionsTypes.createAppointment,
+  appointment,
+});
