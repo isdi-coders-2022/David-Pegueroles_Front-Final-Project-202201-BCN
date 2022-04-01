@@ -1,6 +1,7 @@
 import {
   AppointmentAction,
   AppointmentsAction,
+  DeleteAction,
   NavigationPositionAction,
 } from "../../types/ActionTypes";
 import { Appointment } from "../../types/Appointment";
@@ -25,4 +26,11 @@ export const loadAppointmentInfoAction = (
 ): AppointmentAction => ({
   type: actionsTypes.loadAppointmentInfo,
   appointment,
+});
+
+export const deleteAppointmentAction = (
+  id: string | undefined
+): DeleteAction => ({
+  type: actionsTypes.deleteAppointment,
+  id,
 });
