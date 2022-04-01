@@ -55,7 +55,7 @@ const HeaderImage = styled.header`
       margin-right: 7px;
 
       .logo {
-        height: 291px;
+        height: 70px;
         width: 143px;
       }
     }
