@@ -5,7 +5,7 @@ const Header = (): JSX.Element => {
     <HeaderImage>
       <h1>
         <img
-          src="images/logo_small_blank.png"
+          src="/images/logo_small_blank.png"
           className="logo"
           alt="Pin Your Meetings logo"
         />

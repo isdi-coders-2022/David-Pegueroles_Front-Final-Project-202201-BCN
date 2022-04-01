@@ -20,7 +20,11 @@ const Navigation = (): JSX.Element => {
       <ul className="navigation">
         <li className={`navigation__item${isSelected(0)}`}>
           <Link to="/users">
-            <img src="icons/user.svg" className="navigation__icon" alt="User" />
+            <img
+              src="/icons/user.svg"
+              className="navigation__icon"
+              alt="User"
+            />
             <span className="navigation__title navigation__title--small-text">
               USER
             </span>
@@ -29,7 +33,7 @@ const Navigation = (): JSX.Element => {
         <li className={`navigation__item${isSelected(1)}`}>
           <Link to="/calendar">
             <img
-              src="icons/schedule.svg"
+              src="/icons/schedule.svg"
               className="navigation__icon"
               alt="Calendar"
             />
@@ -41,7 +45,7 @@ const Navigation = (): JSX.Element => {
         <li className={`navigation__item${isSelected(2)}`}>
           <Link to="/map">
             <img
-              src="icons/map-marker.svg"
+              src="/icons/map-marker.svg"
               className="navigation__icon"
               alt="Map"
             />
@@ -53,7 +57,7 @@ const Navigation = (): JSX.Element => {
         <li className={`navigation__item${isSelected(3)}`}>
           <Link to="/new">
             <img
-              src="icons/plus.svg"
+              src="/icons/plus.svg"
               className="navigation__icon"
               alt="Appointment"
             />
