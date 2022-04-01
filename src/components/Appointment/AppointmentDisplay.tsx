@@ -9,13 +9,13 @@ const AppointmentDisplay = ({ appointment }: Props): JSX.Element => {
   return (
     <AppointmentInfo>
       <h3 className="title">{appointment.name}</h3>
-      <img src="icons/edit.svg" className="edit" alt="Edit" />
-      <img src="icons/trash.svg" className="delete" alt="Delete" />
+      <img src="/icons/edit.svg" className="edit" alt="Edit" />
+      <img src="/icons/trash.svg" className="delete" alt="Delete" />
 
       <ul className="information">
         <li className="information__element" title={appointment.date}>
           <img
-            src="icons/schedule.svg"
+            src="/icons/schedule.svg"
             className="information__image"
             alt="Date"
           />
@@ -24,7 +24,7 @@ const AppointmentDisplay = ({ appointment }: Props): JSX.Element => {
 
         <li className="information__element" title={appointment.hour}>
           <img
-            src="icons/clock.svg"
+            src="/icons/clock.svg"
             className="information__image"
             alt="Hour"
           />
@@ -33,7 +33,7 @@ const AppointmentDisplay = ({ appointment }: Props): JSX.Element => {
 
         <li className="information__element" title={appointment.description}>
           <img
-            src="icons/clipboard.svg"
+            src="/icons/clipboard.svg"
             className="information__image"
             alt="Description"
           />
@@ -42,7 +42,7 @@ const AppointmentDisplay = ({ appointment }: Props): JSX.Element => {
 
         <li className="information__element" title={appointment.location}>
           <img
-            src="icons/map-marker.svg"
+            src="/icons/map-marker.svg"
             className="information__image"
             alt="Location"
           />

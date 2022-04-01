@@ -9,10 +9,9 @@ const AppointmentInfo = styled.section`
     font-size: 25px;
   }
 
-  .edit,
-  .delete {
-    width: 20px;
-    height: 20px;
+  img {
+    width: 40px;
+    height: 40px;
   }
 
   .information {
