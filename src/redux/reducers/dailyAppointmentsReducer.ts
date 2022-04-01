@@ -1,6 +1,7 @@
 import {
   Action,
   AppointmentsAction,
+  CreateAppointmentAction,
   DeleteAction,
 } from "../../types/ActionTypes";
 import { Appointment } from "../../types/Appointment";
@@ -23,6 +24,12 @@ const dailyAppointmentsReducer = (
       );
       break;
 
+    case actionsTypes.createAppointment:
+      newAppointments = [
+        ...appointments,
+        (action as CreateAppointmentAction).appointment,
+      ];
+      break;
     default:
       newAppointments = [...appointments];
   }
