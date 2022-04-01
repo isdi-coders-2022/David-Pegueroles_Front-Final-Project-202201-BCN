@@ -1,4 +1,5 @@
 import { Appointment } from "../../types/Appointment";
+import changeDateFormat from "../../utils/changeDateFormat/changeDateFormat";
 import AppointmentInfo from "./AppointmentDisplay.style";
 
 interface Props {
@@ -9,8 +10,8 @@ const AppointmentDisplay = ({ appointment }: Props): JSX.Element => {
   return (
     <AppointmentInfo>
       <h3 className="title">{appointment.name}</h3>
-      <img src="/icons/edit.svg" className="edit" alt="Edit" />
-      <img src="/icons/trash.svg" className="delete" alt="Delete" />
+
+      <div className="separator"></div>
 
       <ul className="information">
         <li className="information__element" title={appointment.date}>
@@ -19,7 +20,9 @@ const AppointmentDisplay = ({ appointment }: Props): JSX.Element => {
             className="information__image"
             alt="Date"
           />
-          <span className="information__text">{appointment.date}</span>
+          <span className="information__text">
+            {appointment.date && changeDateFormat(appointment.date, false)}
+          </span>
         </li>
 
         <li className="information__element" title={appointment.hour}>
@@ -47,6 +50,23 @@ const AppointmentDisplay = ({ appointment }: Props): JSX.Element => {
             alt="Location"
           />
           <span className="information__text">{appointment.location}</span>
+        </li>
+      </ul>
+
+      <ul className="dispatch-buttons">
+        <li>
+          <img
+            src="/icons/edit.svg"
+            className="dispatch-buttons__edit"
+            alt="Edit"
+          />
+        </li>
+        <li>
+          <img
+            src="/icons/trash.svg"
+            className="dispatch-buttons__delete"
+            alt="Delete"
+          />
         </li>
       </ul>
     </AppointmentInfo>
