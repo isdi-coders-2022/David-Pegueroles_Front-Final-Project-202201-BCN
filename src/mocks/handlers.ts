@@ -6,8 +6,8 @@ const date = "29-03-2022";
 export const handlers = [
   rest.get(
     `${process.env.REACT_APP_API}calendar/${changeDateFormat(date, true)}`,
-    (req, res, ctx) => {
-      return res(
+    (req, res, ctx) =>
+      res(
         ctx.status(200),
         ctx.json({
           appointments: [
@@ -31,13 +31,12 @@ export const handlers = [
             },
           ],
         })
-      );
-    }
+      )
   ),
   rest.get(
     `${process.env.REACT_APP_API}calendar/appointment/624210049666edf108d06d69`,
-    (req, res, ctx) => {
-      return res(
+    (req, res, ctx) =>
+      res(
         ctx.status(200),
         ctx.json({
           appointment: {
@@ -50,7 +49,27 @@ export const handlers = [
             id: "624210049666edf108d06d69",
           },
         })
-      );
-    }
+      )
+  ),
+  rest.delete(
+    `${process.env.REACT_APP_API}calendar/appointment/624210049666edf108d06d69`,
+    (req, res, ctx) =>
+      res(
+        ctx.status(200),
+        ctx.json({
+          id: "624210049666edf108d06d69",
+        })
+      )
+  ),
+];
+
+export const errorHadlers = [
+  rest.delete(
+    `${process.env.REACT_APP_API}calendar/appointment/12345`,
+    (req, res, ctx) =>
+      res(
+        ctx.status(404),
+        ctx.json({ error: "The appointment does not exist" })
+      )
   ),
 ];
