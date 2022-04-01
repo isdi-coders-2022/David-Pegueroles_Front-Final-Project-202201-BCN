@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import AppointmentBanner from "../../components/AppointmentBanner/AppointmentBanner";
 import Calendar from "../../components/Calendar/Calendar";
 import SelectedDay from "../../components/SelectedDay/SelectedDay";
@@ -11,21 +12,21 @@ import { Appointment } from "../../types/Appointment";
 import getCalendarDays from "../../utils/getCalendarDays/getCalendarDays";
 
 const CalendarPage = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [days, setDays] = useState<string[][]>(getCalendarDays());
-
   const [currentMonth, setCurrentMonth] = useState<number>(0);
-
   const [selectedDay, setSelectedDay] = useState<string>(
     format(new Date(), "yyyy-MM-d")
+  );
+  const [displayingMonth, setDisplayingMonth] = useState<string>(
+    format(new Date(), "MMMM yyyy")
   );
 
   const changeSelectedDay = (date: string) => {
     setSelectedDay(date);
   };
-
-  const [displayingMonth, setDisplayingMonth] = useState<string>(
-    format(new Date(), "MMMM yyyy")
-  );
 
   const previousMonth = () => {
     const newMonth: number = currentMonth - 1;
@@ -37,8 +38,6 @@ const CalendarPage = (): JSX.Element => {
     setCurrentMonth(newMonth);
   };
 
-  const dispatch = useDispatch();
-
   const dailyAppointmentsList: Appointment[] = useSelector(
     (state: RootState) => state.dailyAppointments
   );
@@ -48,6 +47,10 @@ const CalendarPage = (): JSX.Element => {
       parseInt(a.hour.split(":")[0] + a.hour.split(":")[1]) -
       parseInt(b.hour.split(":")[0] + b.hour.split(":")[1])
   );
+
+  const goToDetailPage = (id: string | undefined) => {
+    navigate(`/calendar/appointment/${id}`);
+  };
 
   useEffect(() => {
     dispatch(navigationPositionAction(1));
@@ -76,7 +79,11 @@ const CalendarPage = (): JSX.Element => {
 
       {sortedAppointmentsList.length !== 0 &&
         sortedAppointmentsList.map((appointment) => (
-          <AppointmentBanner key={appointment.id} appointment={appointment} />
+          <AppointmentBanner
+            key={appointment.id}
+            appointment={appointment}
+            actionOnClick={goToDetailPage}
+          />
         ))}
     </>
   );
