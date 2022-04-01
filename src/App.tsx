@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
+import AppointmentPage from "./pages/AppointmentPage/AppointmentPage";
 import CalendarPage from "./pages/CalendarPage/CalendarPage";
 
 function App() {
@@ -14,7 +15,10 @@ function App() {
         <Route path="/login" element="" />
         <Route path="/calendar">
           <Route index element={<CalendarPage />} />
-          <Route path="/calendar/:idAppointment" element="" />
+          <Route
+            path="/calendar/appointment/:idAppointment"
+            element={<AppointmentPage />}
+          />
         </Route>
         <Route path="*" element="" />
       </Routes>
