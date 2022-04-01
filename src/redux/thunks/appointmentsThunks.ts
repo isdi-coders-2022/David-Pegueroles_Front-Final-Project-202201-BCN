@@ -2,11 +2,13 @@ import { ThunkDispatch } from "redux-thunk";
 import {
   AppointmentAction,
   AppointmentsAction,
+  CreateAppointmentAction,
   DeleteAction,
 } from "../../types/ActionTypes";
 import { Appointment } from "../../types/Appointment";
 import changeDateFormat from "../../utils/changeDateFormat/changeDateFormat";
 import {
+  createAppointmentAction,
   deleteAppointmentAction,
   loadAppointmentInfoAction,
   loadDailyAppointmentsAction,
@@ -62,4 +64,23 @@ export const deleteAppointmentThunk =
     if (response.ok) {
       dispatch(deleteAppointmentAction(id));
     }
+  };
+
+export const CreateAppointmentThunk =
+  (appointment: Appointment) =>
+  async (dispatch: ThunkDispatch<void, unknown, CreateAppointmentAction>) => {
+    const response = await fetch(
+      `${process.env.REACT_APP_API}calendar/appointment/new`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(appointment),
+      }
+    );
+
+    const { newAppointment } = await response.json();
+
+    dispatch(createAppointmentAction(newAppointment));
   };
